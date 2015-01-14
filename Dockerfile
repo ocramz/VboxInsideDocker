@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install VirtualBox
 RUN wget -nv http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
 RUN echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" >> /etc/apt/sources.list.d/virtualbox.list
-RUN apt-get update && apt-get install -y virtualbox-4.3
+RUN apt-get update && apt-get install -y virtualbox-4.3 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Virtualbox Extension Pack
 RUN VBOX_VERSION=`dpkg -s virtualbox-4.3 | grep '^Version: ' | sed -e 's/Version: \([0-9\.]*\)\-.*/\1/'` ; \
