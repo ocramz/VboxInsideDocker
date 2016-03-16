@@ -11,10 +11,10 @@ help:
 	@echo "  push     to push the image to the docker registry"
 
 build:
-	docker build -t $(ACCOUNT)/VboxInsideDocker .
+	docker build -t $(ACCOUNT)/vbox-inside-docker .
 
 login:
 	docker login -u $(ACCOUNT)
 
 push: image login
-	docker push $(ACCOUNT)/VboxInsideDocker
+	docker push $(ACCOUNT)/vbox-inside-docker
